@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ज्योतिष आचार्य - जन्म कुंडली विशेषज्ञ</title>
+    <title>श्री आश्रित सेवा संस्थान - काशी वाराणसी | पूज्य मा श्री आचार्य आशीष मिश्रा जी</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -14,7 +16,7 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <i class="fas fa-om"></i>
-                <span>ज्योतिष आचार्य</span>
+                <span>श्री आश्रित सेवा संस्थान</span>
             </div>
             <div class="nav-menu" id="nav-menu">
                 <a href="#home" class="nav-link">मुख्य</a>
@@ -37,12 +39,16 @@
                 <div class="hero-text">
                     <h1 class="hero-title">
                         <span class="om-symbol">ॐ</span>
-                        श्री ज्योतिष आचार्य
+                        श्री आश्रित सेवा संस्थान
                     </h1>
-                    <h2 class="hero-subtitle">जन्म कुंडली विशेषज्ञ</h2>
+                    <h2 class="hero-subtitle">काशी वाराणसी</h2>
+                    <h3 class="founder-name">संस्थापक: पूज्य मा श्री आचार्य आशीष मिश्रा जी</h3>
+                    <div class="speciality-highlight">
+                        <h4 class="main-speciality">जन्म कुंडली विशेषज्ञ</h4>
+                    </div>
                     <p class="hero-description">
-                        वैदिक ज्योतिष के माध्यम से आपके जीवन की समस्याओं का समाधान। 
-                        जन्म कुंडली, विवाह मिलान, करियर मार्गदर्शन और धार्मिक अनुष्ठान।
+                        वास्तु दोष, व्यापार, विवाह, संतान, करियर, प्रेम, तंत्र, मंत्र, यंत्र, रुद्र अभिषेक, 
+                        शतचण्डी, अनुष्ठान एवं जीवन से जुड़ी समस्त समस्या का परामर्श हेतु सम्पर्क करें।
                     </p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn btn-primary">संपर्क करें</a>
@@ -67,41 +73,13 @@
                 <div class="section-divider"></div>
             </div>
             <div class="about-content">
-                <div class="about-text">
-                    <h3>श्री ज्योतिष आचार्य</h3>
+                <div class="about-text-only">
                     <p class="about-description">
-                        वर्षों के अनुभव के साथ वैदिक ज्योतिष के क्षेत्र में विशेषज्ञता प्राप्त आचार्य जी 
-                        आपकी सभी समस्याओं का समाधान प्रदान करते हैं। जन्म कुंडली विश्लेषण में विशेष दक्षता रखने वाले 
-                        आचार्य जी ने हजारों लोगों का मार्गदर्शन किया है।
+                        वैदिक ज्योतिष के क्षेत्र में विशेषज्ञता प्राप्त आचार्य जी आपकी सभी समस्याओं का समाधान प्रदान करते हैं। 
+                        जन्म कुंडली विश्लेषण, हस्त रेखा, वास्तु दोष, व्यापार, विवाह, संतान, करियर, प्रेम, तंत्र-मंत्र-यंत्र, 
+                        रुद्र अभिषेक, शतचण्डी अनुष्ठान में विशेष दक्षता रखने वाले आचार्य जी ने हजारों लोगों का मार्गदर्शन किया है।
+                        श्री आश्रित सेवा संस्थान के माध्यम से समाज सेवा और आध्यात्मिक मार्गदर्शन का कार्य किया जा रहा है।
                     </p>
-                    <div class="specializations">
-                        <h4>विशेषज्ञता:</h4>
-                        <ul>
-                            <li><i class="fas fa-star"></i> जन्म कुंडली विश्लेषण एवं हस्त रेखा</li>
-                            <li><i class="fas fa-star"></i> विवाह मिलान एवं प्रेम समस्या समाधान</li>
-                            <li><i class="fas fa-star"></i> वास्तु दोष निवारण एवं व्यापार परामर्श</li>
-                            <li><i class="fas fa-star"></i> संतान प्राप्ति एवं करियर मार्गदर्शन</li>
-                            <li><i class="fas fa-star"></i> तंत्र-मंत्र-यंत्र विशेषज्ञ</li>
-                            <li><i class="fas fa-star"></i> रुद्राभिषेक एवं श्रीचंडी अनुष्ठान</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="about-features">
-                    <div class="feature-card">
-                        <i class="fas fa-clock"></i>
-                        <h4>समय</h4>
-                        <p>सुबह 10 बजे से शाम 4 बजे तक</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-users"></i>
-                        <h4>अनुभव</h4>
-                        <p>हजारों संतुष्ट ग्राहक</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-heart"></i>
-                        <h4>सेवा</h4>
-                        <p>निष्ठा और समर्पण के साथ</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -113,7 +91,6 @@
             <div class="section-header">
                 <h2 class="section-title">हमारी सेवाएं</h2>
                 <div class="section-divider"></div>
-                <p class="section-subtitle">जन्म कुंडली, हस्त रेखा, वास्तु दोष, व्यापार, विवाह, संतान, करियर, प्रेम, तंत्र-मंत्र-यंत्र एवं जीवन से जुड़ी समस्त समस्याओं का समाधान</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
@@ -229,13 +206,6 @@
                             <p>सुबह 10:00 बजे से शाम 4:00 बजे तक</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-star"></i>
-                        <div>
-                            <h4>विशेषज्ञता</h4>
-                            <p>जन्म कुंडली विशेषज्ञ</p>
-                        </div>
-                    </div>
                 </div>
                 <div class="contact-form">
                     <form id="consultation-form">
@@ -278,28 +248,9 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3><i class="fas fa-om"></i> श्री ज्योतिष आचार्य</h3>
-                    <p>वैदिक ज्योतिष के माध्यम से आपके जीवन में सकारात्मकता और समृद्धि लाना हमारा उद्देश्य है।</p>
-                </div>
-                <div class="footer-section">
-                    <h4>त्वरित लिंक</h4>
-                    <ul>
-                        <li><a href="#home">मुख्य</a></li>
-                        <li><a href="#about">परिचय</a></li>
-                        <li><a href="#services">सेवाएं</a></li>
-                        <li><a href="#contact">संपर्क</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>संपर्क</h4>
-                    <p><i class="fas fa-envelope"></i> abhishekashishmishra4@gmail.com</p>
-                    <p><i class="fas fa-clock"></i> 10:00 AM - 4:00 PM</p>
-                </div>
-            </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2024 श्री ज्योतिष आचार्य। सभी अधिकार सुरक्षित।</p>
+                <p>&copy; 2025 श्री आश्रित सेवा संस्थान, काशी वाराणसी। सभी अधिकार सुरक्षित।</p>
             </div>
         </div>
     </footer>

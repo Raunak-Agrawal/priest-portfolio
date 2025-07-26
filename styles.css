@@ -162,8 +162,35 @@ h1, h2, h3, h4, h5, h6 {
 .hero-subtitle {
     font-size: 1.8rem;
     color: var(--secondary-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-weight: 500;
+}
+
+.founder-name {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.speciality-highlight {
+    background: var(--gradient-gold);
+    padding: 0.6rem 1rem;
+    border-radius: 15px;
+    margin-bottom: 1.2rem;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.2);
+    display: inline-block;
+}
+
+.main-speciality {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .hero-description {
@@ -292,17 +319,41 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 4rem;
-    align-items: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-text-only {
+    max-width: 800px;
+    text-align: center;
 }
 
 .about-text h3 {
     font-size: 2rem;
     color: var(--primary-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
 }
+
+.institute-location {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.founder-title {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--cream-color), #FFF8E7);
+    padding: 0.8rem 1rem;
+    border-left: 4px solid var(--gold-color);
+    border-radius: 5px;
+}
+
+
 
 .about-description {
     font-size: 1.1rem;
@@ -311,54 +362,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-light);
 }
 
-.specializations h4 {
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-}
 
-.specializations ul {
-    list-style: none;
-}
-
-.specializations li {
-    padding: 0.5rem 0;
-    color: var(--text-light);
-}
-
-.specializations li i {
-    color: var(--gold-color);
-    margin-right: 0.5rem;
-}
-
-.about-features {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.feature-card {
-    background: var(--gradient-primary);
-    color: var(--white);
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    transition: transform 0.3s ease;
-    box-shadow: 0 10px 25px var(--shadow);
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-}
-
-.feature-card i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: var(--gold-color);
-}
-
-.feature-card h4 {
-    margin-bottom: 0.5rem;
-}
 
 /* Services Section */
 .services {
@@ -368,38 +372,61 @@ h1, h2, h3, h4, h5, h6 {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
 }
 
 .service-card {
     background: var(--white);
-    padding: 2rem;
-    border-radius: 15px;
+    padding: 1.8rem 1.5rem;
+    border-radius: 12px;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 25px var(--shadow);
-    border-top: 5px solid var(--primary-color);
-    min-height: 220px;
+    box-shadow: 0 8px 20px var(--shadow);
+    border-left: 4px solid var(--primary-color);
+    min-height: 170px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-gold);
+    opacity: 0.05;
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px var(--shadow);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px var(--shadow);
+    border-left-color: var(--gold-color);
+}
+
+.service-card:hover::before {
+    opacity: 0.1;
 }
 
 .service-icon {
-    width: 70px;
-    height: 70px;
+    width: 55px;
+    height: 55px;
     background: var(--gradient-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1rem;
+    margin: 0 auto 0.8rem;
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+    position: relative;
+    z-index: 2;
 }
 
 .service-icon i {
@@ -409,13 +436,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .service-card h3 {
     color: var(--text-dark);
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
 }
 
 .service-card p {
     color: var(--text-light);
     line-height: 1.6;
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 2;
 }
 
 
@@ -499,41 +532,11 @@ h1, h2, h3, h4, h5, h6 {
     padding: 3rem 0 1rem;
 }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
 
-.footer-section h3,
-.footer-section h4 {
-    color: var(--gold-color);
-    margin-bottom: 1rem;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    padding: 0.25rem 0;
-}
-
-.footer-section ul li a {
-    color: var(--white);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section ul li a:hover {
-    color: var(--primary-color);
-}
 
 .footer-bottom {
     text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid #444;
+    padding: 2rem 0;
     color: #AAA;
 }
 
@@ -570,9 +573,9 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 2.5rem;
     }
 
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .about-text-only {
+        max-width: 100%;
+        padding: 0 1rem;
     }
 
     .contact-content {
@@ -602,13 +605,17 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 1.4rem;
     }
 
+    .founder-name {
+        font-size: 1.1rem;
+    }
+
     .section-title {
         font-size: 2rem;
     }
 
     .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 0.8rem;
     }
 
     .image-frame {
@@ -616,15 +623,7 @@ h1, h2, h3, h4, h5, h6 {
         height: 250px;
     }
 
-    .about-features {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
 
-    .feature-card {
-        flex: 1;
-        min-width: 150px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -636,6 +635,18 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 1.8rem;
     }
 
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .founder-name {
+        font-size: 1rem;
+    }
+
+    .main-speciality {
+        font-size: 1rem;
+    }
+
     .hero-description {
         font-size: 1rem;
     }
@@ -645,13 +656,24 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 0.9rem;
     }
 
-    .service-card,
+    .service-card {
+        padding: 1.4rem 1.2rem;
+        min-height: 160px;
+    }
+
     .contact-form {
         padding: 1.5rem;
     }
 
-    .about-features {
-        flex-direction: column;
+
+
+    .institute-location {
+        font-size: 1.1rem;
+    }
+
+    .founder-title {
+        font-size: 1rem;
+        padding: 0.6rem 0.8rem;
     }
 }
 

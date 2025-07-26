@@ -1,5 +1,7 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize EmailJS
+    emailjs.init("bs5knZUdCSWHXDO2D"); // Replace with your EmailJS public key
     // Mobile Navigation Toggle
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
@@ -106,14 +108,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Validate form
             if (validateForm(formValues)) {
-                // Show success message
-                showNotification('आपका संदेश सफलतापूर्वक भेज दिया गया है! हम जल्द ही आपसे संपर्क करेंगे।', 'success');
+                // Show loading message
+                showNotification('आपका संदेश भेजा जा रहा है...', 'info');
                 
-                // Reset form
-                this.reset();
-                
-                // Send email (in a real application, this would be handled by a server)
-                handleFormSubmission(formValues);
+                // Send email using EmailJS
+                sendEmailJS(formValues, this);
             }
         });
     }
@@ -151,8 +150,8 @@ document.addEventListener('DOMContentLoaded', function() {
         return emailRegex.test(email);
     }
 
-    // Handle form submission (create mailto link)
-    function handleFormSubmission(values) {
+    // Send email using EmailJS
+    function sendEmailJS(values, form) {
         const { name, email, phone, service, message } = values;
         
         const serviceNames = {
@@ -170,24 +169,29 @@ document.addEventListener('DOMContentLoaded', function() {
             'chandi-anushthan': 'श्रीचंडी अनुष्ठान'
         };
         
-        const subject = `नई परामर्श अनुरोध - ${serviceNames[service] || service}`;
-        const body = `
-नाम: ${name}
-ईमेल: ${email}
-मोबाइल: ${phone}
-सेवा: ${serviceNames[service] || service}
-
-संदेश:
-${message || 'कोई विशेष संदेश नहीं'}
-
----
-यह संदेश वेबसाइट के संपर्क फॉर्म से भेजा गया है।
-        `.trim();
+        const templateParams = {
+            to_email: 'raunk325@gmail.com',
+            from_name: name,
+            from_email: email,
+            phone: phone,
+            service: serviceNames[service] || service,
+            message: message || 'कोई विशेष संदेश नहीं',
+            subject: `नई परामर्श अनुरोध - ${serviceNames[service] || service}`
+        };
         
-        const mailtoLink = `mailto:abhishekashishmishra4@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        
-        // Open mail client
-        window.location.href = mailtoLink;
+        // Send email using EmailJS
+        emailjs.send('service_oi8ajzi', 'template_yeqrd05', templateParams)
+            .then(function(response) {
+                console.log('Email sent successfully:', response);
+                showNotification('आपका संदेश सफलतापूर्वक भेज दिया गया है! हम जल्द ही आपसे संपर्क करेंगे।', 'success');
+                form.reset();
+            })
+            .catch(function(error) {
+                console.error('Email sending failed:', error);
+                console.error('Error details:', error.text);
+                const errorMsg = error.text || error.message || 'अज्ञात त्रुटि';
+                showNotification(`त्रुटि: ${errorMsg}। कृपया पुनः प्रयास करें।`, 'error');
+            });
     }
 
     // Notification system
@@ -198,9 +202,12 @@ ${message || 'कोई विशेष संदेश नहीं'}
         
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
+        const iconClass = type === 'success' ? 'fa-check-circle' : 
+                         type === 'info' ? 'fa-info-circle' : 'fa-exclamation-circle';
+        
         notification.innerHTML = `
             <div class="notification-content">
-                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                <i class="fas ${iconClass}"></i>
                 <span>${message}</span>
                 <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
                     <i class="fas fa-times"></i>
@@ -209,11 +216,14 @@ ${message || 'कोई विशेष संदेश नहीं'}
         `;
         
         // Add notification styles
+        const bgColor = type === 'success' ? '#4CAF50' : 
+                       type === 'info' ? '#2196F3' : '#f44336';
+        
         notification.style.cssText = `
             position: fixed;
             top: 100px;
             right: 20px;
-            background: ${type === 'success' ? '#4CAF50' : '#f44336'};
+            background: ${bgColor};
             color: white;
             padding: 1rem 1.5rem;
             border-radius: 8px;
