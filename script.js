@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         const templateParams = {
-            to_email: 'raunk325@gmail.com',
+            to_email: 'abhishekashishmishra4@gmail.com',
             from_name: name,
             from_email: email,
             phone: phone,
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // Observe elements for animation
-    const animatedElements = document.querySelectorAll('.service-card, .feature-card, .contact-item');
+    const animatedElements = document.querySelectorAll('.service-card, .feature-card, .contact-item, .gallery-item');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
