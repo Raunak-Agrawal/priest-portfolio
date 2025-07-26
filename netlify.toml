@@ -1,0 +1,18 @@
+# Netlify configuration for static HTML site
+[build]
+  # Explicitly set NO build command (overrides web UI settings)
+  command = ""
+  # Publish from root directory (where index.html is located)
+  publish = "."
+
+  ## Settings for redirects (if needed later)
+  #[[redirects]]
+  #  from = "/*"
+  #  to = "/index.html"
+  #  status = 200
+
+  ## Optional Dev settings
+  #[dev]
+  #  command = "python3 -m http.server 8000" # Simple dev server
+  #  port = 8000
+  #  publish = "."
