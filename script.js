@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         // Send email using EmailJS
-        emailjs.send('service_oi8ajzi', 'template_yeqrd05', templateParams)
+        emailjs.send('service_c5dwhwj', 'template_yeqrd05', templateParams)
             .then(function(response) {
                 console.log('Email sent successfully:', response);
                 showNotification('आपका संदेश सफलतापूर्वक भेज दिया गया है! हम जल्द ही आपसे संपर्क करेंगे।', 'success');
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Email sending failed:', error);
                 console.error('Error details:', error.text);
                 const errorMsg = error.text || error.message || 'अज्ञात त्रुटि';
-                
+
                 showNotification(`त्रुटि: ${errorMsg}। कृपया पुनः प्रयास करें।`, 'error');
             });
     }
